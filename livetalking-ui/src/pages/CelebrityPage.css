@@ -1,0 +1,162 @@
+.celeb-page {
+  position: fixed; inset: 0; background: #0a0a0f; overflow: hidden; z-index: 100;
+  font-family: Inter, -apple-system, sans-serif;
+}
+.celeb-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, #1a1a2e40 0%, #0a0a0f 70%);
+}
+/* removed: celeb-streak (dead code) */
+
+/* Top bar */
+.celeb-topbar {
+  position: absolute; top: 0; left: 0; right: 0; height: 56px; z-index: 10;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 32px;
+  background: linear-gradient(to bottom, #0a0a0f66, transparent);
+  opacity: 0.5; transition: opacity 0.3s;
+}
+.celeb-topbar:hover { opacity: 1; }
+.celeb-topbar-left, .celeb-topbar-right { display: flex; align-items: center; gap: 12px; }
+.celeb-topbar-logo { color: #ffffff60; font-size: 14px; }
+.celeb-topbar-sep { color: #ffffff30; }
+.celeb-topbar-title { color: #ffffff80; font-size: 14px; }
+.celeb-icon-btn {
+  width: 32px; height: 32px; border-radius: 16px; border: none; cursor: pointer;
+  background: #ffffff15; color: #ffffffb3; display: flex; align-items: center; justify-content: center;
+  font-size: 14px; transition: all 0.2s;
+}
+.celeb-icon-btn:hover { background: #ffffff25; }
+.celeb-fps-tag {
+  height: 24px; padding: 0 10px; border-radius: 12px; background: #ffffff15;
+  display: flex; align-items: center; gap: 6px; font-size: 11px; color: #ffffff80;
+}
+.celeb-fps-tag.green { background: #52c41a20; color: #52c41a; }
+.celeb-fps-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+/* Left switcher */
+.celeb-switcher {
+  position: absolute; left: 20px; top: 50%; transform: translateY(-50%); z-index: 10;
+  display: flex; flex-direction: column; gap: 8px; padding: 12px 8px;
+  background: #0a0a0f55; border-radius: 28px; border: 1px solid #ffffff08;
+  backdrop-filter: blur(10px);
+  opacity: 0.4; transition: opacity 0.3s;
+}
+.celeb-switcher:hover { opacity: 1; }
+.celeb-sw-btn {
+  width: 44px; height: 44px; border-radius: 22px; border: 2px solid transparent; cursor: pointer;
+  background: #ffffff10; display: flex; align-items: center; justify-content: center;
+  transition: all 0.3s;
+}
+.celeb-sw-btn.active { background: #ffffff20; box-shadow: 0 0 12px #1677ff40; }
+.celeb-sw-btn:hover { background: #ffffff20; }
+.celeb-sw-btn.add { border: 1px dashed #ffffff30; background: transparent; }
+
+/* Center video - fullscreen */
+.celeb-video-container {
+  position: absolute; inset: 0; overflow: hidden;
+  background: #0a0a0f;
+}
+.celeb-video { width: 100%; height: 100%; object-fit: cover; }
+.celeb-video-placeholder {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+
+/* Name card */
+.celeb-namecard {
+  position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%); z-index: 10;
+  display: flex; align-items: center; gap: 16px; padding: 10px 18px;
+  background: #0a0a0f55; border-radius: 16px; border: 1px solid #ffffff08;
+  backdrop-filter: blur(12px);
+  opacity: 0.5; transition: opacity 0.3s;
+}
+.celeb-namecard:hover { opacity: 1; }
+.celeb-namecard-avatar {
+  width: 48px; height: 48px; border-radius: 50%; border: 2px solid;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.celeb-namecard-name { color: #ffffffee; font-size: 16px; font-weight: 600; }
+.celeb-namecard-desc { color: #ffffff80; font-size: 12px; margin-top: 2px; }
+.celeb-status-tag {
+  height: 28px; padding: 0 12px; border-radius: 14px; background: #ffffff15;
+  display: flex; align-items: center; gap: 6px; font-size: 12px; color: #ffffff80;
+  white-space: nowrap;
+}
+.celeb-status-tag.online { background: #1677ff20; color: #1677ff; }
+.celeb-status-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+/* Chat overlay */
+.celeb-chat-overlay {
+  position: absolute; right: 20px; top: 70px; bottom: 120px; width: 340px; z-index: 10;
+  display: flex; flex-direction: column; padding: 14px;
+  background: #0a0a0f44; border-radius: 16px; border: 1px solid #ffffff06;
+  backdrop-filter: blur(12px);
+  opacity: 0.35; transition: opacity 0.4s;
+}
+.celeb-chat-overlay:hover { opacity: 1; background: #0a0a0f88; }
+.celeb-chat-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 12px; color: #ffffff80; font-size: 13px; font-weight: 500;
+}
+.celeb-chat-clear {
+  background: none; border: none; color: #ffffff40; cursor: pointer; padding: 4px;
+}
+.celeb-chat-messages { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+.celeb-chat-messages::-webkit-scrollbar { width: 4px; }
+.celeb-chat-messages::-webkit-scrollbar-thumb { background: #ffffff20; border-radius: 2px; }
+
+.celeb-msg { display: flex; flex-direction: column; gap: 4px; }
+.celeb-msg.user { align-items: flex-end; }
+.celeb-msg-head { display: flex; align-items: center; gap: 6px; }
+.celeb-msg-dot { width: 6px; height: 6px; border-radius: 50%; }
+.celeb-msg-name { font-size: 11px; font-weight: 500; color: #ffffff80; }
+.celeb-msg-time { font-size: 10px; color: #ffffff40; }
+.celeb-msg-typing { font-size: 10px; color: #1677ffaa; animation: blink 1s infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+.celeb-msg-bubble {
+  padding: 10px 14px; font-size: 13px; line-height: 1.6; max-width: 300px;
+}
+.celeb-msg-bubble.ai {
+  background: #ffffff12; border-radius: 2px 12px 12px 12px; color: #ffffffdd;
+}
+.celeb-msg-bubble.user {
+  background: #1677ff40; border-radius: 12px 2px 12px 12px; color: #ffffffee;
+}
+.celeb-msg-voice { font-size: 10px; color: #ffffff60; margin-left: 8px; }
+
+.celeb-chat-input { display: flex; gap: 8px; margin-top: 12px; }
+.celeb-input-field {
+  flex: 1; height: 36px; border-radius: 18px; border: 1px solid #ffffff15;
+  background: #ffffff12; padding: 0 16px; color: #ffffffee; font-size: 13px;
+  outline: none; font-family: inherit;
+}
+.celeb-input-field::placeholder { color: #ffffff40; }
+.celeb-input-field:focus { border-color: #1677ff60; }
+.celeb-send-btn {
+  width: 36px; height: 36px; border-radius: 18px; border: none; cursor: pointer;
+  background: #1677ff; color: #fff; display: flex; align-items: center; justify-content: center;
+  font-size: 14px; transition: all 0.2s;
+}
+.celeb-send-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+/* Bottom mic */
+.celeb-bottom {
+  position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 10;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.celeb-mic-btn {
+  width: 52px; height: 52px; border-radius: 26px; border: none; cursor: pointer;
+  background: #1677ff99; color: #fff; font-size: 22px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 16px #1677ff30;
+  transition: all 0.3s; opacity: 0.7;
+}
+.celeb-mic-btn:hover { transform: scale(1.08); opacity: 1; box-shadow: 0 0 30px #1677ff60; }
+.celeb-mic-btn.listening {
+  background: #ff4d4f; box-shadow: 0 0 24px #ff4d4f50;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+.celeb-mic-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+@keyframes pulse { 0%,100% { box-shadow: 0 0 24px #ff4d4f50; } 50% { box-shadow: 0 0 40px #ff4d4f80; } }
+.celeb-mic-label { font-size: 11px; color: #ffffff30; }
